@@ -1,0 +1,27 @@
+{
+  "name": "ToSlack",
+  "version": "0.0.1",
+  "description": "Email to slack",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "mocha"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/cuappdev/eatery-web"
+  },
+  "keywords": [
+
+  ],
+  "author": "Feifan Zhou",
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "coffee-script": "^1.8.0",
+    "express": "^4.9.5",
+    "mailin": "1.0.0"
+  }
+}
