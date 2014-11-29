@@ -1,18 +1,19 @@
-# ========== Utils ==========
-sender = (mimeParsedFrom) ->
-  firstFrom = if Array.isArray(mimeParsedFrom) then mimeParsedFrom[0] else mimeParsedFrom
-  return firstFrom.name || firstFrom.address
-
-postURL = (subdomain, token) ->
-  "https://" + subdomain + ".slack.com/services/hooks/incoming-webhook?token=" + token
-
 # ========== Requires ==========
+config  = require("./config")
 express = require 'express'
 httpserver = express()
 
 request = require 'request'
 
 mailin = require 'mailin'
+
+# ========== Utils ==========
+sender = (mimeParsedFrom) ->
+  firstFrom = if Array.isArray(mimeParsedFrom) then mimeParsedFrom[0] else mimeParsedFrom
+  return firstFrom.name || firstFrom.address
+
+postURL = ->
+  config.url
 
 # ========== POST to Slack ==========
 sendToSlack = (from, message) ->
