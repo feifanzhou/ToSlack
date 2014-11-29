@@ -31,6 +31,6 @@ onMessage = (connection, data, content) ->
   console.log('Content: ' + JSON.stringify(content))
   messageBody = data.text
   from = sender(data.envelopeFrom)
-  sendToSlack(from, messageBody))
+  sendToSlack(from, messageBody)
 
 module.exports.onMessage = onMessage
