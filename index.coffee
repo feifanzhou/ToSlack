@@ -21,9 +21,12 @@ sendToSlack = (from, message) ->
   payload.channel = '#general'
   payload.text =  message
   payload.username = from + " (via email)"
+  console.log('Posting payload: ' + JSON.stringify(payload) + ' to URL: ' + postURL())
   request.post(
-    postURL(),
-    { form: payload },
+    {
+      url: postURL(),
+      form: payload,
+    },
     (error, response, body) ->
       console.log('Posted email: Response: ' + response + ', error: ' + error)
   )
