@@ -25,10 +25,10 @@ sendToSlack = (from, message) ->
   request.post(
     {
       url: postURL(),
-      form: payload,
+      form: { 'payload': payload },
     },
     (error, response, body) ->
-      console.log('Posted email: Response: ' + response + ', error: ' + error)
+      console.log('Posted email: Response: ' + JSON.stringify(response) + ', error: ' + error)
   )
 
 
