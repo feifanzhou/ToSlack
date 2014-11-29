@@ -1,6 +1,6 @@
 # ========== Utils ==========
 sender = (mimeParsedFrom) ->
-  firstFrom = Array.isArray(mimeParsedFrom) ? mimeParsedFrom[0] : mimeParsedFrom
+  firstFrom = if Array.isArray(mimeParsedFrom) then mimeParsedFrom[0] else mimeParsedFrom
   return firstFrom.name || firstFrom.address
 
 postURL = (subdomain, token) ->
@@ -17,7 +17,7 @@ mailin = require 'mailin'
 # ========== POST to Slack ==========
 sendToSlack: (from, message) ->
   payload = {}
-  payload.channel = '#general
+  payload.channel = '#general'
   payload.text =  message
   payload.username = from + " (via email)"
   request.post(
@@ -35,11 +35,11 @@ mailin.start(
 )
 
 mailin.on('message', (connection, data, content) ->
-          console.log('=================== Received message:')
-          console.log('Connection: ' + JSON.stringify(connection))
-          console.log('Data: ' + JSON.stringify(data))
-          console.log('Content: ' + JSON.stringify(content))
-          messageBody = data.text
-          from = sender(data.envelopeFrom)
-          sendToSlack(from, messageBody)
+  console.log('=================== Received message:')
+  console.log('Connection: ' + JSON.stringify(connection))
+  console.log('Data: ' + JSON.stringify(data))
+  console.log('Content: ' + JSON.stringify(content))
+  messageBody = data.text
+  from = sender(data.envelopeFrom)
+  sendToSlack(from, messageBody)
 )
