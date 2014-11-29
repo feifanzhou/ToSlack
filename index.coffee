@@ -15,7 +15,7 @@ request = require 'request'
 mailin = require 'mailin'
 
 # ========== POST to Slack ==========
-sendToSlack: (from, message) ->
+sendToSlack = (from, message) ->
   payload = {}
   payload.channel = '#general'
   payload.text =  message
