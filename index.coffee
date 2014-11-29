@@ -1,5 +1,5 @@
 # ========== Requires ==========
-config  = require("./config")
+config  = require("./keys")
 express = require 'express'
 httpserver = express()
 
