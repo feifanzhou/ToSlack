@@ -1,0 +1,42 @@
+html, body {
+  background: url(images/mainbkg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+a {
+  text-decoration: none; }
+
+.InvisibleButton {
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearence: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  color: inherit;
+  margin: 0;
+  outline: none;
+  padding: 0; }
+
+#content {
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-align: center;
+  text-shadow: 0 0.1em 0.05em rgba(0, 0, 0, 0.3); }
+  #content h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    margin: 8rem auto 2rem auto;
+    text-shadow: 0 0.05em 0.05em rgba(0, 0, 0, 0.5); }
+  #content footer {
+    bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    left: 0;
+    padding: 1rem;
+    position: absolute;
+    right: 0; }

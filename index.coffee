@@ -30,10 +30,10 @@ router
 # ========== Start server ==========
 app
   .use('/', router)
-  .use(coffeeMiddleware({
-    src: __dirname + '/views/pages'
-    compress: true
-  }))
+  # .use(coffeeMiddleware({
+  #   src: __dirname + '/views/pages'
+  #   compress: true
+  # }))
   .use(sass.middleware({
     src: __dirname + '/assets/stylesheets'
     dest: __dirname + '/public'
