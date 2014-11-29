@@ -25,7 +25,7 @@ sendToSlack = (from, message) ->
     postURL(),
     { form: payload },
     (error, response, body) ->
-      conosle.log('Posted email: Response: ' + response + ', error: ' + error)
+      console.log('Posted email: Response: ' + response + ', error: ' + error)
   )
 
 
