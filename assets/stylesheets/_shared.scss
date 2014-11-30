@@ -1,0 +1,41 @@
+// Width breakpoints
+$xxs: 'min-width: 320px';
+$media-xxs: 'only screen and (min-width: 320px)';
+$xs: 'min-width: 480px';
+$media-xs: 'only screen and (min-width: 480px)';
+$sm: 'min-width: 768px';
+$media-sm: 'only screen and (min-width: 768px)';
+$md: 'min-width: 992px';
+$media-md: 'only screen and (min-width: 992px)';
+$lg: 'min-width: 1200px';
+$media-lg: 'only screen and (min-width: 1200px)';
+$xlg: 'min-width: 1600px';
+$media-xlg: 'only screen and (min-width: 1600px)';
+
+// Colors
+$primary-color: #5CA89F;
+
+// Mixins
+@mixin vendor-prefix($name, $argument) {
+  #{$name}: #{ $argument };
+  -webkit-#{$name}: #{ $argument };
+  -ms-#{$name}: #{ $argument };
+  -moz-#{$name}: #{ $argument };
+  -o-#{$name}: #{ $argument };
+}
+
+// Common styles
+html, body {
+  background: url(images/mainbkg.jpg) no-repeat center center fixed;
+  @include vendor-prefix(background-size, cover);
+  // background: black;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  @include vendor-prefix(transition, color 0.25s);
+  &:hover {
+    color: lighten($primary-color, 8%);
+  }
+}

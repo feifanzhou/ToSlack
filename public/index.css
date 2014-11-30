@@ -1,12 +1,21 @@
 html, body {
   background: url(images/mainbkg.jpg) no-repeat center center fixed;
+  background-size: cover;
   -webkit-background-size: cover;
+  -ms-background-size: cover;
   -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; }
+  -o-background-size: cover; }
 
 a {
-  text-decoration: none; }
+  color: #5CA89F;
+  text-decoration: none;
+  transition: color 0.25s;
+  -webkit-transition: color 0.25s;
+  -ms-transition: color 0.25s;
+  -moz-transition: color 0.25s;
+  -o-transition: color 0.25s; }
+  a:hover {
+    color: #77b6ae; }
 
 .InvisibleButton {
   -moz-appearance: none;
@@ -32,6 +41,55 @@ a {
     font-weight: 700;
     margin: 8rem auto 2rem auto;
     text-shadow: 0 0.05em 0.05em rgba(0, 0, 0, 0.5); }
+  #content form {
+    background: rgba(72, 136, 127, 0.25);
+    border-radius: 0.5rem;
+    box-shadow: 0 0.05em 0.1em 0.05em rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    margin: 2rem 0;
+    overflow: hidden;
+    padding: 2rem; }
+    #content form h2 {
+      margin-top: 0; }
+    #content form #signupAt {
+      display: inline-block;
+      padding: 0 0.5rem; }
+    #content form input {
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 0.15em;
+      box-shadow: 0 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.3);
+      color: #444;
+      font-size: 1.2rem;
+      outline: none;
+      padding: 0.5rem 0.5rem; }
+    #content form button[type='submit'] {
+      background-color: #5CA89F;
+      border: none;
+      border-bottom: 1px solid #376761;
+      border-top: 1px solid #8ec3bc;
+      border-radius: 0.25em;
+      box-shadow: 0 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.2);
+      color: white;
+      display: block;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.05em;
+      margin-top: 1em;
+      padding: 0.75em 1em;
+      text-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.5);
+      transition: background-color 0.25s;
+      -webkit-transition: background-color 0.25s;
+      -ms-transition: background-color 0.25s;
+      -moz-transition: background-color 0.25s;
+      -o-transition: background-color 0.25s;
+      width: 100%; }
+      #content form button[type='submit']:hover {
+        background-color: #69afa6; }
+      #content form button[type='submit']:active {
+        background-color: #50968c;
+        margin-bottom: 0em;
+        margin-top: 1.05em; }
   #content footer {
     bottom: 0;
     font-size: 1rem;
