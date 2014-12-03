@@ -25,10 +25,17 @@ $primary-color: #5CA89F;
 }
 
 // Common styles
+body {
+  background: url(images/greyzz.png);
+  font-family: 'Lato', sans-serif;
+}
 body.index {
   background: url(images/mainbkg.jpg) no-repeat center center fixed;
   @include vendor-prefix(background-size, cover);
-  font-family: 'Lato', sans-serif;
+  input {
+    border-radius: 0.15em;
+    border: none;
+  }
 }
 
 a {
@@ -43,9 +50,13 @@ a {
 form {
   input {
     background: transparentize(white, 0.1);
-    border: none;
-    border-radius: 0.15em;
-    box-shadow: 0 0.1em 0.1em 0.1em transparentize(black, 0.7);
+    border: 1px solid transparentize($primary-color, 0.5);
+    @media (-webkit-min-device-pixel-ratio: 2) {
+      border-color: $primary-color;
+      border-width: 0.5px;
+    }
+    border-radius: 0.25em;
+    box-shadow: 0 0.05em 0.05em 0.0em transparentize(black, 0.8);
     color: #444;
     font-size: 1.2rem;
     outline: none;

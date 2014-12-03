@@ -37,6 +37,9 @@
     h2 {
       margin-top: 0;
     }
+    input {
+      box-shadow: 0 0.1em 0.1em 0.1em transparentize(black, 0.7);
+    }
     #signupAt {
       display: inline-block;
       padding: 0 0.5rem;

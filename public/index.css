@@ -1,11 +1,17 @@
+body {
+  background: url(images/greyzz.png);
+  font-family: 'Lato', sans-serif; }
+
 body.index {
   background: url(images/mainbkg.jpg) no-repeat center center fixed;
   background-size: cover;
   -webkit-background-size: cover;
   -ms-background-size: cover;
   -moz-background-size: cover;
-  -o-background-size: cover;
-  font-family: 'Lato', sans-serif; }
+  -o-background-size: cover; }
+  body.index input {
+    border-radius: 0.15em;
+    border: none; }
 
 a {
   color: #5CA89F;
@@ -20,13 +26,16 @@ a {
 
 form input {
   background: rgba(255, 255, 255, 0.9);
-  border: none;
-  border-radius: 0.15em;
-  box-shadow: 0 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(92, 168, 159, 0.5);
+  border-radius: 0.25em;
+  box-shadow: 0 0.05em 0.05em 0em rgba(0, 0, 0, 0.2);
   color: #444;
   font-size: 1.2rem;
   outline: none;
   padding: 0.5rem 0.5rem; }
+  @media (-webkit-min-device-pixel-ratio: 2) {
+    form input {
+      border-width: 0.5px; } }
 form button[type='submit'] {
   background-color: #5CA89F;
   border: none;
@@ -88,6 +97,8 @@ form button[type='submit'] {
     padding: 2rem; }
     #content form h2 {
       margin-top: 0; }
+    #content form input {
+      box-shadow: 0 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.3); }
     #content form #signupAt {
       display: inline-block;
       padding: 0 0.5rem; }

@@ -3,25 +3,33 @@
 <div id='content'>
   <form action='/users' method='POST'>
     <section>
-      <label>Domain
-        <input type='text' name='domain' placeholder='example.com' value='<%= domain %>' />
-      </label>
+      <h2>Domain</h2>
+      <article>
+        <input type='text' name='domain' placeholder='example.com' value='<%= (typeof(domain) != "undefined") ? domain : "" %>' />
+      </article>
     </section>
     <section>
-      <label>Receiving email
-        <input type='text' name='target' placeholder='example' />@toslack.com
-      </label>
-      <p>Need more security?</p>
+      <h2>Slack API URL</h2>
+      <article>
+        <input type='url' name='slackURL' placeholder='https://api.slack.com/XXXXX' />
+        <p><a href='/how'>Where do I find this?</a></p>
+      </article>
     </section>
     <section>
-      <label>Password
+      <h2>Target email</h2>
+      <article>
+        <input type='text' name='target' placeholder='example' />
+        <span id='receivingDomain'>@toslack.com</span>
+        <p><a href='/pricing'>Need more security?</a></p>
+      </article>
+    </section>
+    <section>
+      <h2>Password</h2>
+      <article>
         <input type='secure' name='password' placeholder='Pick something secure' />
-      </label>
+      </article>
     </section>
     <button type='submit'>Finish</button>
   </form>
-  <footer>
-    Built for <a href='https://www.tunetap.com' target='_blank'>Tunetap</a> by <a href='https://twitter.com/FeifanZ' target='_blank'>Feifan Zhou</a>
-  </footer>
 </div>
 <% include layouts/tail %>

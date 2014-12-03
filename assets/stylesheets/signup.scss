@@ -1,1 +1,38 @@
 @import 'shared';
+
+form {
+  margin: auto;
+  width: 40rem;
+  section {
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.1em 0.1em 0.05em transparentize(black, 0.8);
+    margin: 2rem 0;
+    overflow: hidden;
+    padding: 0.25rem;
+    > h2 {
+      border-right: 1px solid transparentize(black, 0.8);
+      display: inline-block;
+      font-weight: 300;
+      margin-right: 1em;
+      padding: 1rem;
+      text-align: right;
+      width: 10rem;
+    }
+    > article {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    p {
+      font-size: 0.8em;
+    }
+  }
+  input {
+    display: inline-block;
+    width: 17rem;
+  }
+  #receivingDomain {
+    display: inline-block;
+    margin-left: 0.25em;
+  }
+}
