@@ -1,0 +1,27 @@
+<% include layouts/head %>
+<link rel="stylesheet" type="text/css" href="signup.css">
+<div id='content'>
+  <form action='/users' method='POST'>
+    <section>
+      <label>Domain
+        <input type='text' name='domain' placeholder='example.com' value='<%= domain %>' />
+      </label>
+    </section>
+    <section>
+      <label>Receiving email
+        <input type='text' name='target' placeholder='example' />@toslack.com
+      </label>
+      <p>Need more security?</p>
+    </section>
+    <section>
+      <label>Password
+        <input type='secure' name='password' placeholder='Pick something secure' />
+      </label>
+    </section>
+    <button type='submit'>Finish</button>
+  </form>
+  <footer>
+    Built for <a href='https://www.tunetap.com' target='_blank'>Tunetap</a> by <a href='https://twitter.com/FeifanZ' target='_blank'>Feifan Zhou</a>
+  </footer>
+</div>
+<% include layouts/tail %>

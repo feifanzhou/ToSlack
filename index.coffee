@@ -24,8 +24,15 @@ inmail = require('./inmail')
 router
   .route('/')
   .get (req, res) ->
-    res.render('index')
+    res.render('index', { page: 'index' })
     return
+
+router
+  .route('/signup')
+  .get (req, res) ->
+    res.render('signup', { domain: req.query.d })
+    return
+
 
 # ========== Start server ==========
 app
