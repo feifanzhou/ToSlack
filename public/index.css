@@ -35,6 +35,7 @@ form input {
   padding: 0.5rem 0.5rem; }
   @media (-webkit-min-device-pixel-ratio: 2) {
     form input {
+      border-color: #5CA89F;
       border-width: 0.5px; } }
 form button[type='submit'] {
   background-color: #5CA89F;

@@ -20,6 +20,8 @@
   "license": "MIT",
   "homepage": "",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "1.10.0",
     "coffee-middleware": "0.2.1",
     "coffee-script": "^1.8.0",
     "ejs": "^1.0.0",

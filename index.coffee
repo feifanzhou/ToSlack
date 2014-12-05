@@ -4,12 +4,15 @@ express = require 'express'
 app = express()
 router = express.Router()
 coffeeMiddleware = require('coffee-middleware')
+bodyParser = require('body-parser')
 sass = require('node-sass')
 
 request = require 'request'
 
 mailin = require 'mailin'
 inmail = require('./inmail')
+
+UsersController = require './controllers/users_controller'
 
 
 # ========== Process mail ==========
@@ -33,9 +36,15 @@ router
     res.render('signup', { domain: req.query.d })
     return
 
+router
+  .route('/users')
+  .post UsersController.create
+
 
 # ========== Start server ==========
 app
+  .use(bodyParser.json())
+  .use(bodyParser.urlencoded({ extended: true }))
   .use('/', router)
   # .use(coffeeMiddleware({
   #   src: __dirname + '/views/pages'
