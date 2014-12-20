@@ -11,12 +11,14 @@ class _User
     return
 
   _insert: (callback) ->
-    q = "INSERT INTO users VALUES (DEFAULT, $1, $2, $3, $4);"
+    newID = User._curr_id + 1
+    q = "INSERT INTO users VALUES (" + newID + ", $1, $2, $3, $4);"
     params = [@domain, @slackURL, @targetEMail, @passwordDigest]
     self = this
     Database.query(q, params, (err, rows, result) ->
       console.log('Result: ' + JSON.stringify(result))
-      self.id = result.id  # FIX access to ID (probably)
+      User._curr_id = newID
+      self.id = newID
       callback(self)
     )
 
@@ -34,6 +36,13 @@ class _User
 
 User = {
   _table: 'users'
+  _curr_id: undefined
+  _init: ->
+    self = this
+    Database.query('SELECT id FROM users', [], (err, rows, result) ->
+      self._curr_id = rows[rows.length - 1]['id']
+    )
+    return this
   new: (attrs) ->
     new _User(attrs)
   find_by: (attr, val, callback) ->
@@ -41,4 +50,4 @@ User = {
     Database.query('SELECT * FROM ' + @_table + ' WHERE $1=$2;', [attr, val], callback)
 }
 
-module.exports = User
+module.exports = User._init()
