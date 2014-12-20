@@ -13,7 +13,7 @@ class _User
   _insert: (callback) ->
     newID = User._curr_id + 1
     q = "INSERT INTO users VALUES (" + newID + ", $1, $2, $3, $4);"
-    params = [@domain, @slackURL, @targetEMail, @passwordDigest]
+    params = [@domain, @slackURL, @targetEmail, @passwordDigest]
     self = this
     Database.query(q, params, (err, rows, result) ->
       console.log('Result: ' + JSON.stringify(result))
