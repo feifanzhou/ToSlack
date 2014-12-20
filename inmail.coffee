@@ -6,7 +6,7 @@ sender = (mimeParsedFrom) ->
   return firstFrom.name || firstFrom.address
 
 postURL = ->
-  config.url
+  config.slackURL
 
 # ========== POST to Slack ==========
 sendToSlack = (from, message) ->

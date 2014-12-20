@@ -8,6 +8,9 @@ UsersController = {
       target: req.body.target
       password: req.body.password
     })
+    u.save((u) ->
+      res.redirect('/users/' + u.id)
+    )
 }
 
 module.exports = UsersController

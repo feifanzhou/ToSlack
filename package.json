@@ -29,6 +29,8 @@
     "mailin": "1.0.0",
     "node-sass": "0.9.6",
     "normalize.css": "^3.0.2",
+    "pg": "4.1.0",
+    "pg-query": "0.10.1",
     "request": "2.49.0"
   }
 }
