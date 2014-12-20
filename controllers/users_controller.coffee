@@ -11,6 +11,10 @@ UsersController = {
     u.save((u) ->
       res.redirect('/users/' + u.id)
     )
+  show: (req, res) ->
+    User.find(req.params.id, (u, err) ->
+      res.send('<p>' + u.id + '</p>')
+    )
 }
 
 module.exports = UsersController

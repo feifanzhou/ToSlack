@@ -45,6 +45,11 @@ User = {
     return this
   new: (attrs) ->
     new _User(attrs)
+  find: (id, callback) ->
+    Database.query_first('SELECT * FROM users WHERE id=$1', [id], (err, row, result) ->
+      console.log('Row: ' + JSON.stringify(row))
+      callback(row, err)
+    )
   find_by: (attr, val, callback) ->
     #Database.find_by(@_table, attr, val, callback)
     Database.query('SELECT * FROM ' + @_table + ' WHERE $1=$2;', [attr, val], callback)

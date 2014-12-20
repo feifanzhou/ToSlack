@@ -39,6 +39,9 @@ router
 router
   .route('/users')
   .post UsersController.create
+router
+  .route('/users/:id')
+  .get UsersController.show
 
 
 # ========== Start server ==========
