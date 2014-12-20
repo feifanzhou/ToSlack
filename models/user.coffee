@@ -47,12 +47,12 @@ User = {
     new _User(attrs)
   find: (id, callback) ->
     Database.query_first('SELECT * FROM users WHERE id=$1', [id], (err, row, result) ->
-      console.log('Row: ' + JSON.stringify(row))
       callback(row, err)
     )
   find_by: (attr, val, callback) ->
-    #Database.find_by(@_table, attr, val, callback)
-    Database.query('SELECT * FROM ' + @_table + ' WHERE $1=$2;', [attr, val], callback)
+    Database.query_first('SELECT * FROM ' + @_table + ' WHERE $1=$2;', [attr, val], (err, row, result) ->
+      callback(row, err)
+    )
 }
 
 module.exports = User._init()
