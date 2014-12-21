@@ -8,18 +8,21 @@ class _User
     @slackURL = attrs.slackURL
     @targetEmail = attrs.target
     @passwordDigest = bcrypt.hashSync(attrs.password)
+    @sessionCode = attrs.sessionCode
     return
 
   _insert: (callback) ->
     newID = User._curr_id + 1
-    q = "INSERT INTO users VALUES (" + newID + ", $1, $2, $3, $4);"
-    params = [@domain, @slackURL, @targetEmail, @passwordDigest]
+    newSessionCode = (Math.random().toString(36).slice(2)) + (Math.random().toString(36).slice(2)) + (Math.random().toString(36).slice(2))
+    q = "INSERT INTO users VALUES (" + newID + ", $1, $2, $3, $4, $5);"
+    params = [@domain, @slackURL, @targetEmail, @passwordDigest, newSessionCode]
     self = this
     Database.query(q, params, (err, rows, result) ->
       console.log('Result: ' + JSON.stringify(result))
       User._curr_id = newID
       self.id = newID
-      callback(self)
+      self.sessionCode = newSessionCode
+      callback(self, err)
     )
 
   _update: ->
@@ -40,7 +43,7 @@ User = {
   _init: ->
     self = this
     Database.query('SELECT id FROM users', [], (err, rows, result) ->
-      self._curr_id = rows[rows.length - 1]['id']
+      self._curr_id = if rows.length == 0 then 0 else rows[rows.length - 1]['id']
     )
     return this
   new: (attrs) ->

@@ -8,7 +8,10 @@ UsersController = {
       target: req.body.target
       password: req.body.password
     })
-    u.save((u) ->
+    u.save((u, err) ->
+      oneYear = new Date()
+      oneYear.setYear(oneYear.getFullYear() + 1)
+      res.cookie('session', u.sessionCode, { expires: oneYear })
       res.redirect('/users/' + u.id)
     )
   show: (req, res) ->
