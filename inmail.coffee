@@ -5,7 +5,7 @@ User = require './models/user'
 sender = (mimeParsedFrom) ->
   firstFrom = if Array.isArray(mimeParsedFrom) then mimeParsedFrom[0] else mimeParsedFrom
   return firstFrom.name || firstFrom.address
-senderDomain = (mimeParsedForm) ->
+senderDomain = (mimeParsedFrom) ->
   firstFrom = if Array.isArray(mimeParsedFrom) then mimeParsedFrom[0] else mimeParsedFrom
   address = firstFrom.address
   posOfAt = address.indexOf('@')
