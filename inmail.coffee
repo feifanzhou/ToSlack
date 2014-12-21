@@ -11,7 +11,7 @@ senderDomain = (mimeParsedFrom) ->
   firstFrom = if Array.isArray(mimeParsedFrom) then mimeParsedFrom[0] else mimeParsedFrom
   address = firstFrom.address
   posOfAt = address.indexOf('@')
-  if posOfAt < 0 then return undefined else return address.substring(posOfAt)
+  if posOfAt < 0 then return undefined else return address.substring(posOfAt + 1)
 
 postURL = ->
   config.slackURL
