@@ -1,6 +1,8 @@
 config  = require("./keys")
 User = require './models/user'
 
+request = require 'request'
+
 # ========== Utils ==========
 sender = (mimeParsedFrom) ->
   firstFrom = if Array.isArray(mimeParsedFrom) then mimeParsedFrom[0] else mimeParsedFrom

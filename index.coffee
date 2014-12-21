@@ -8,8 +8,6 @@ coffeeMiddleware = require('coffee-middleware')
 bodyParser = require('body-parser')
 sass = require('node-sass')
 
-request = require 'request'
-
 mailin = require 'mailin'
 inmail = require('./inmail')
 
