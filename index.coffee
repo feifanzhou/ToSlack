@@ -49,7 +49,7 @@ router
 router
   .route('/users/:id')
   .get UsersController.show
-
+  .post UsersController.edit
 
 # ========== Start server ==========
 app

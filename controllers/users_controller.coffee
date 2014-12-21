@@ -22,6 +22,14 @@ UsersController = {
       else
         res.redirect('/login')
     )
+  edit: (req, res) ->
+    # TOOD: Need to authenticate request with session cookie
+    params = {}
+    params['slackURL'] = req.body.slackURL unless req.body.slackURL == undefined
+    User.setValues(req.params.id, params, (err) ->
+      console.log('Update error: ' + err)
+      res.redirect('/users/' + req.params.id)
+    )
   login: (req, res) ->
     User.find_by('domain', req.body.domain, (u, err) ->
       if u != undefined && bcrypt.compareSync(req.body.password, u.passworddigest)

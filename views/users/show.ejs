@@ -2,11 +2,11 @@
 <link rel="stylesheet" type="text/css" href="/signup.css" />
 <div id='content'>
   <h1>Settings for <strong><%= user.domain %></strong></h1>
-  <form action='/users/<%= user.id %>/edit' method='POST'>
+  <form action='/users/<%= user.id %>' method='POST'>
     <section>
       <h2>Slack URL</h2>
       <article>
-        <input type='text' name='domain' placeholder='https://hooks.slack.com/XXXXX' value='<%= user.slackurl %>' />
+        <input type='text' name='slackURL' placeholder='https://hooks.slack.com/XXXXX' value='<%= user.slackurl %>' />
       </article>
     </section>
     <section>
