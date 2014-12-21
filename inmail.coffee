@@ -24,7 +24,6 @@ sendToSlack = (envelopeFrom, message) ->
   from_name = sender(envelopeFrom)
   payload.username = from_name + " (via email)"
   
-  console.log('Posting payload: ' + JSON.stringify(payload) + ' to URL: ' + postURL())
   User.find_by('domain', senderDomain(envelopeFrom), (u, err) ->
     request.post(
       {

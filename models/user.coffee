@@ -61,9 +61,10 @@ User = {
     params = []
     count = 1
     for k,v of vals
-      setStr += (k + '=$' + count)
+      setStr += (k + '=$' + count + ',')
       params.push(v)
       count++
+    setStr = setStr.slice(0, -1)
     params.push(id)
     q = 'UPDATE users SET ' + setStr + ' WHERE id=$' + count
     Database.query(q, params, (err, row, result) ->

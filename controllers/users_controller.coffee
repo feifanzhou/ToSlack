@@ -26,6 +26,7 @@ UsersController = {
     # TOOD: Need to authenticate request with session cookie
     params = {}
     params['slackURL'] = req.body.slackURL unless req.body.slackURL == undefined
+    params['targetEmail'] = req.body.targetEmail unless req.body.targetEmail == undefined
     User.setValues(req.params.id, params, (err) ->
       console.log('Update error: ' + err)
       res.redirect('/users/' + req.params.id)
