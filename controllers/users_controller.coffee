@@ -16,7 +16,11 @@ UsersController = {
     )
   show: (req, res) ->
     User.find(req.params.id, (u, err) ->
-      res.send('<p>' + u.id + '</p>')
+      #console.log('u: ' + JSON.stringify(u))
+      if req.cookies.session == undefined || req.cookies.session != u.sessioncode
+        res.redirect('/login')
+      else
+        res.send('<p>' + u.id + '</p>')
     )
 }
 

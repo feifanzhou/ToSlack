@@ -3,6 +3,7 @@ config  = require("./keys")
 express = require 'express'
 app = express()
 router = express.Router()
+cookieParser = require('cookie-parser')
 coffeeMiddleware = require('coffee-middleware')
 bodyParser = require('body-parser')
 sass = require('node-sass')
@@ -46,6 +47,7 @@ router
 
 # ========== Start server ==========
 app
+  .use(cookieParser())
   .use(bodyParser.json())
   .use(bodyParser.urlencoded({ extended: true }))
   .use('/', router)
