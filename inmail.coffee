@@ -29,7 +29,7 @@ attemptPost = (url, payload, count) ->
     )
   catch error
     console.log('Error posting to Slack: ' + error)
-    attemptPost(url, payload) if count < 5
+    attemptPost(url, payload, count + 1) if count < 5
 sendToSlack = (envelopeFrom, message) ->
   payload = {}
   payload.text =  message

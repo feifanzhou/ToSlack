@@ -28,6 +28,7 @@ UsersController = {
     params['slackURL'] = req.body.slackURL unless req.body.slackURL == undefined
     params['targetEmail'] = req.body.targetEmail unless req.body.targetEmail == undefined
     params['channel'] = req.body.channel unless req.body.channel == undefined
+    params['domain'] = req.body.domain unless req.body.domain == undefined
     User.setValues(req.params.id, params, (err) ->
       console.log('Update error: ' + err)
       res.redirect('/users/' + req.params.id)

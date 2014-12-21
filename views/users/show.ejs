@@ -4,6 +4,12 @@
   <h1>Settings for <strong><%= user.domain %></strong></h1>
   <form action='/users/<%= user.id %>' method='POST'>
     <section>
+      <h2>Domain</h2>
+      <article>
+        <input type='text' name='domain' placeholder='example.com' value='<%= user.domain %>' />
+      </article>
+    </section>
+    <section>
       <h2>Slack URL</h2>
       <article>
         <input type='text' name='slackURL' placeholder='https://hooks.slack.com/XXXXX' value='<%= user.slackurl %>' />
