@@ -36,6 +36,11 @@ router
   .get (req, res) ->
     res.render('signup', { domain: req.query.d })
     return
+router
+  .route('/login')
+  .get (req, res) ->
+    res.render('login')
+    return
 
 router
   .route('/users')
