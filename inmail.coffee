@@ -17,6 +17,19 @@ postURL = ->
   config.slackURL
 
 # ========== POST to Slack ==========
+attemptPost = (url, payload, count) ->
+  try
+    request.post(
+      {
+        url: url,
+        form: { 'payload': JSON.stringify(payload) }
+      },
+      (error, response, body) ->
+        console.log('Posted email: Response: ' + JSON.stringify(response) + ', error: ' + error)
+    )
+  catch error
+    console.log('Error posting to Slack: ' + error)
+    attemptPost(url, payload) if count < 5
 sendToSlack = (envelopeFrom, message) ->
   payload = {}
   payload.text =  message
@@ -25,14 +38,7 @@ sendToSlack = (envelopeFrom, message) ->
   
   User.find_by('domain', senderDomain(envelopeFrom), (u, err) ->
     payload.channel = u.channel
-    request.post(
-      {
-        url: u.slackurl,
-        form: { 'payload': JSON.stringify(payload) },
-      },
-      (error, response, body) ->
-        console.log('Posted email: Response: ' + JSON.stringify(response) + ', error: ' + error)
-    )
+    attemptPost(u.slackurl, payload, 1)
   )
 
 onMessage = (connection, data, content) ->
