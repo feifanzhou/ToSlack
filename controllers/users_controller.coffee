@@ -17,10 +17,10 @@ UsersController = {
     )
   show: (req, res) ->
     User.find(req.params.id, (u, err) ->
-      if req.cookies.session == undefined || req.cookies.session != u.sessioncode
-        res.redirect('/login')
+      if u != undefined && u!= null && req.cookies.session != undefined && req.cookies.session == u.sessioncode
+        res.render('users/show', { user: u})
       else
-        res.send('<p>' + u.id + '</p>')
+        res.redirect('/login')
     )
   login: (req, res) ->
     User.find_by('domain', req.body.domain, (u, err) ->

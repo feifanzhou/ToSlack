@@ -1,0 +1,21 @@
+<% include ../layouts/head %>
+<link rel="stylesheet" type="text/css" href="/signup.css" />
+<div id='content'>
+  <h1>Settings for <strong><%= user.domain %></strong></h1>
+  <form action='/users/<%= user.id %>/edit' method='POST'>
+    <section>
+      <h2>Slack URL</h2>
+      <article>
+        <input type='text' name='domain' placeholder='https://hooks.slack.com/XXXXX' value='<%= user.slackurl %>' />
+      </article>
+    </section>
+    <section>
+      <h2>Other settings</h2>
+      <article>
+        <p>Other settings coming soon</p>
+      </article>
+    </section>
+    <button type='submit'>Save</button>
+  </form>
+</div>
+<% include ../layouts/tail %>
