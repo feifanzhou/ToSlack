@@ -88,6 +88,9 @@ form {
       vertical-align: middle; }
     form section p {
       font-size: 0.8em; }
+    form section .pre {
+      color: #5CA89F;
+      display: inline-block; }
   form input {
     display: inline-block;
     width: 17rem; }

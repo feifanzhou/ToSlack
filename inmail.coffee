@@ -19,12 +19,12 @@ postURL = ->
 # ========== POST to Slack ==========
 sendToSlack = (envelopeFrom, message) ->
   payload = {}
-  payload.channel = '#general'
   payload.text =  message
   from_name = sender(envelopeFrom)
   payload.username = from_name + " (via email)"
   
   User.find_by('domain', senderDomain(envelopeFrom), (u, err) ->
+    payload.channel = u.channel
     request.post(
       {
         url: u.slackurl,

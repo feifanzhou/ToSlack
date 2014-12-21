@@ -26,6 +26,10 @@ form {
     p {
       font-size: 0.8em;
     }
+    .pre {
+      color: $primary-color;
+      display: inline-block;
+    }
   }
   input {
     display: inline-block;
