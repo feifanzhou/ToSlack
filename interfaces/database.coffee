@@ -3,8 +3,8 @@ keys = require '../keys'
 
 query = require 'pg-query'
 connection = 'postgres://' + keys.pgUserName + ':' + keys.pgPassword + '@' + keys.pgURI + '/' + keys.pgDatabase
-#query.connectionParameters = connection
-query.connectionParameters = 'postgres://Feifan@localhost/toslack'
+query.connectionParameters = connection
+#query.connectionParameters = 'postgres://Feifan@localhost/toslack'
 
 Database = {
   _client: undefined
