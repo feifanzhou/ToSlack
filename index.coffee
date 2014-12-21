@@ -15,14 +15,14 @@ inmail = require('./inmail')
 
 UsersController = require './controllers/users_controller'
 
-
 # ========== Process mail ==========
-# mailin.start(
-#   port: 25,
-#   disableWebhook: true
-# )
+if config.env == 'production'
+  mailin.start(
+    port: 25,
+    disableWebhook: true
+  )
 
-# mailin.on('message', inmail.onMessage)
+  mailin.on('message', inmail.onMessage)
 
 # ========== Set up routes ==========
 router
@@ -52,6 +52,7 @@ router
   .post UsersController.edit
 
 # ========== Start server ==========
+port = if config.env == 'production' then 80 else 8080
 app
   .use(cookieParser())
   .use(bodyParser.json())
@@ -70,4 +71,4 @@ app
   .use(express.static(__dirname + '/public'))
   .set('views', './views')
   .set('view engine', 'ejs')
-  .listen(8080)
+  .listen(port)
