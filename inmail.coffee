@@ -27,7 +27,7 @@ sendToSlack = (envelopeFrom, message) ->
     request.post(
       {
         url: u.slackurl,
-        form: { 'payload': payload },
+        form: { 'payload': JSON.stringify(payload) },
       },
       (error, response, body) ->
         console.log('Posted email: Response: ' + JSON.stringify(response) + ', error: ' + error)
