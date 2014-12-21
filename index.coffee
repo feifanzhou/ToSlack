@@ -41,6 +41,7 @@ router
   .get (req, res) ->
     res.render('login')
     return
+  .post UsersController.login
 
 router
   .route('/users')

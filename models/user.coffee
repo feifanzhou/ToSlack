@@ -53,7 +53,7 @@ User = {
       callback(row, err)
     )
   find_by: (attr, val, callback) ->
-    Database.query_first('SELECT * FROM ' + @_table + ' WHERE $1=$2;', [attr, val], (err, row, result) ->
+    Database.query_first('SELECT * FROM users WHERE ' + attr + '=$1;', [val], (err, row, result) ->
       callback(row, err)
     )
 }
