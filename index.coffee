@@ -49,6 +49,12 @@ router
   .get UsersController.show
   .post UsersController.edit
 
+router
+  .route('/pricing')
+  .get (req, res) ->
+    res.render('pricing')
+    return
+
 # ========== Start server ==========
 port = if config.env == 'production' then 80 else 8080
 app

@@ -37,7 +37,7 @@ sendToSlack = (envelopeFrom, message) ->
   payload.username = from_name + " (via email)"
   
   User.find_by('domain', senderDomain(envelopeFrom), (u, err) ->
-    payload.channel = u.channel
+    payload.channel = if u? then u.channel else '#general'
     attemptPost(u.slackurl, payload, 1)
   )
 
